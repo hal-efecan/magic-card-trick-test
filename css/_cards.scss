@@ -1,0 +1,64 @@
+.cards-wrapper {
+  width: calc(100vw - 4rem);
+  height: $card-height;
+  overflow: scroll;
+  margin: 0 2rem;
+  border-radius: 10px;
+  position: relative;
+
+  .card {
+    height: $card-height;
+    width: $card-width;
+    position: absolute;
+    background-size: 100%;
+    animation: fadeIn 500ms ease-in-out;
+
+    @for $i from 1 through 13 {
+        &.hearts-#{$i} {
+          background-image: url('../assets/cards/hearts-#{$i}.svg');
+        }
+    }
+    @for $i from 1 through 13 {
+        &.diamonds-#{$i} {
+          background-image: url('../assets/cards/diamonds-#{$i}.svg');
+        }
+    }
+    @for $i from 1 through 13 {
+        &.clubs-#{$i} {
+          background-image: url('../assets/cards/clubs-#{$i}.svg');
+        }
+    }
+    @for $i from 1 through 13 {
+        &.spades-#{$i} {
+          background-image: url('../assets/cards/spades-#{$i}.svg');
+        }
+    }
+
+    &:hover {
+      z-index: 50;
+
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      75%{
+        opacity: 0.95;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.hidden {
+    .card {
+      background: rgb(0,212,255);
+      background: radial-gradient(circle, #00d4ff 0%, #090979 65%, #020024 97%);
+      border: 1px solid;
+      border-radius: 10px;
+    }
+  }
+}
+
